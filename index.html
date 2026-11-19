@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111a3d">
+  <meta name="description" content="A live weather dashboard with current conditions and a five-day forecast.">
+  <title>Atmos — Live Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Atmos home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>atmos<span class="brand-period">.</span></span>
+      </a>
+      <p class="topbar-note">Your window to the weather</p>
+      <button class="unit-toggle" id="unit-toggle" type="button" aria-label="Switch to Fahrenheit"><span class="selected">°C</span> <span aria-hidden="true">/</span> °F</button>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">WEATHER, AT A GLANCE</p>
+      <h1 id="page-title">Find your forecast.</h1>
+      <p class="intro-copy">A little sunshine, wherever you are.</p>
+    </section>
+
+    <form class="search" id="search-form" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"></circle>
+        <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+      </svg>
+      <label class="sr-only" for="city-input">Search city</label>
+      <input id="city-input" name="city" type="search" placeholder="Search any city..." autocomplete="off" required>
+      <button class="search-button" id="search-button" type="submit">
+        <span>Search</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
+      </button>
+    </form>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    <section class="weather-content" id="weather-content" aria-live="off" hidden>
+      <article class="current-card glass-card">
+        <div class="current-main">
+          <div class="location-line">
+            <div>
+              <p class="eyebrow">CURRENT WEATHER</p>
+              <h2 id="city-name">—</h2>
+              <p class="local-date" id="local-date">—</p>
+            </div>
+            <span class="location-pin" aria-hidden="true">⌖</span>
+          </div>
+          <div class="current-reading">
+            <span class="current-icon" id="current-icon" aria-hidden="true">☀️</span>
+            <div>
+              <p class="temperature" id="current-temperature">—<span>°C</span></p>
+              <p class="condition" id="current-condition">—</p>
+            </div>
+          </div>
+        </div>
+        <div class="current-divider"></div>
+        <div class="weather-details">
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">↗</span>
+            <div><p class="detail-label">FEELS LIKE</p><p class="detail-value" id="feels-like">—</p></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">◉</span>
+            <div><p class="detail-label">HUMIDITY</p><p class="detail-value" id="humidity">—</p></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">≋</span>
+            <div><p class="detail-label">WIND</p><p class="detail-value" id="wind">—</p></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">⌁</span>
+            <div><p class="detail-label">PRECIPITATION</p><p class="detail-value" id="precipitation">—</p></div>
+          </div>
+        </div>
+      </article>
+
+      <section class="forecast-section" aria-labelledby="forecast-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE WEEK AHEAD</p>
+            <h2 id="forecast-title">5-day forecast</h2>
+          </div>
+          <span class="forecast-caption">A little look ahead <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="forecast-grid" id="forecast-grid"></div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>Made for curious skies</span>
+      <span class="footer-dot">·</span>
+      <span>Weather data by Open-Meteo</span>
+      <span class="footer-dot">·</span>
+      <a class="developer-link" href="https://suportfolio2026.netlify.app/" target="_blank" rel="noopener noreferrer">Developer: Suraj Yadav</a>
+    </footer>
+  </main>
+</body>
+</html>
